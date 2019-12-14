@@ -1,11 +1,3 @@
-// Core, Team, and Official extensions can `require` VM code:
-const ArgumentType = require('../../extension-support/argument-type');
-const BlockType = require('../../extension-support/block-type');
-const TargetType = require('../../extension-support/target-type');
-
-// ...or VM dependencies:
-const formatMessage = require('format-message');
-
 // Core, Team, and Official extension classes should be registered statically with the Extension Manager.
 // See: scratch-vm/src/extension-support/extension-manager.js
 class SomeBlocks {
@@ -87,7 +79,7 @@ class SomeBlocks {
                     //     A LOOP block is like a CONDITIONAL block with two differences:
                     //     - the block is assumed to have exactly one child branch, and
                     //     - each time a child branch finishes, the loop block is called again.
-                    blockType: BlockType.REPORTER,
+                    blockType: Scratch.BlockType.REPORTER,
 
                     // Required for CONDITIONAL blocks, ignored for others: the number of
                     // child branches this block controls. An "if" or "repeat" block would
@@ -126,7 +118,7 @@ class SomeBlocks {
                         // args object passed to the implementation function.
                         LETTER_NUM: {
                             // Required: type of the argument / shape of the block input
-                            type: ArgumentType.NUMBER,
+                            type: Scratch.ArgumentType.NUMBER,
 
                             // Optional: the default value of the argument
                             default: 1
@@ -136,7 +128,7 @@ class SomeBlocks {
                         // args object passed to the implementation function.
                         TEXT: {
                             // Required: type of the argument / shape of the block input
-                            type: ArgumentType.STRING,
+                            type: Scratch.ArgumentType.STRING,
 
                                 // Optional: the default value of the argument
                             default: formatMessage({
@@ -154,7 +146,7 @@ class SomeBlocks {
                     // Optional: list of target types for which this block should appear.
                     // If absent, assume it applies to all builtin targets -- that is:
                     // [TargetType.SPRITE, TargetType.STAGE]
-                    filter: [TargetType.SPRITE]
+                    filter: [Scratch.TargetType.SPRITE]
                 },
                 {
                     // Another block...
