@@ -20,7 +20,7 @@ class ErikTest {
 
                     blockType: Scratch.BlockType.REPORTER,
 
-                    text: 'My block',
+                    text: 'Test [TEST]',
                     arguments: {
                         TEST: {
                             type: Scratch.ArgumentType.STRING,
